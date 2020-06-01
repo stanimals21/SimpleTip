@@ -14,10 +14,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="header_value" parent="header_style">
-        <!-- Customize your theme here. -->
+    <style name="header_value_style" parent="header_style">
+        <item name ="android:textSize">@dimen/headerVal_textSize</item>
         <item name="android:textColor">#4CAF50</item>
+        <item name="android:maxLength">8</item>
     </style>
-
 
 </resources>
