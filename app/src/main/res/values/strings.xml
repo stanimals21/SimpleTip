@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SimpleTip</string>
+    <string name="total_cost_info_text">Total cost:</string>
+    <string name="per_person_info_text">Tip per person:</string>
+</resources>
