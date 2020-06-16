@@ -27,7 +27,8 @@ class TipViewModel:ViewModel() {
         numPeople.value = 1
     }
 
-//    fun calculateValues{ TODO
+//    fun calculateValues(){
+//
 //    }
 
 
