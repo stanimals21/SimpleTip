@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="tipViewModel"
+            type="com.example.simpletip.TipViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerLayout"
@@ -99,7 +106,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="@string/default_dollar_value"
+            android:text="@{String.valueOf(tipViewModel.totalCost)}"
             app:layout_constraintBottom_toTopOf="@+id/total_tip_value"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/total_cost_label"
@@ -133,7 +140,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:gravity="center"
-            android:text="@string/default_dollar_value"
+            android:text="@{String.valueOf(tipViewModel.totalTip)}"
             app:layout_constraintBaseline_toBaselineOf="@+id/tip_total_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tip_total_label"
@@ -157,7 +164,7 @@
             android:layout_marginRight="16dp"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:text="@string/default_dollar_value"
+            android:text="@{String.valueOf(tipViewModel.billValue)}"
             app:layout_constraintBaseline_toBaselineOf="@+id/bill_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/middle_verticalGuideline" />
@@ -172,6 +179,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:ems="10"
+            android:text="@{String.valueOf(tipViewModel.tipPercent)}"
             android:inputType="numberDecimal"
             app:layout_constraintBaseline_toBaselineOf="@+id/tip_percent_label"
             app:layout_constraintEnd_toEndOf="parent"
@@ -187,8 +195,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:ems="10"
+            android:text="@{String.valueOf(tipViewModel.numPeople)}"
             android:inputType="numberDecimal"
-            android:text="@string/default_num_people"
             app:layout_constraintBaseline_toBaselineOf="@+id/num_people_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/middle_verticalGuideline" />

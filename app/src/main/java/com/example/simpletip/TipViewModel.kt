@@ -14,22 +14,24 @@ class TipViewModel:ViewModel() {
     val totalCost: LiveData<Double>
         get() = _totalCost
 
-    private var _costPerPerson = MutableLiveData<Double>()
-    val costPerPerson: LiveData<Double>
-        get() = _costPerPerson
+    private var _totalTip = MutableLiveData<Double>()
+    val totalTip: LiveData<Double>
+        get() = _totalTip
 
     init{
         // initially set all values to 0
         _totalCost.value = 0.0
-        _costPerPerson.value = 0.0
+        _totalTip.value = 0.0
         billValue.value = 0.0
-        tipPercent.value = 0.0
+        tipPercent.value = 0.15
         numPeople.value = 1
     }
 
-//    fun calculateValues(){
-//
-//    }
+    // TODO: test for correctness and possible crashes
+    fun calculateValues(){
+       _totalTip.value = tipPercent.value?.let { billValue.value?.times(it) }
+       _totalCost.value = _totalCost.value?.let { _totalTip.value?.plus(it) }
+    }
 
 
 
