@@ -7,14 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/divider"
-        style="@style/Divider"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/divider_height"
-        app:layout_constraintBottom_toBottomOf="@id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/bill_textview"
@@ -27,13 +19,13 @@
         android:layout_marginRight="16dp"
         android:includeFontPadding="false"
         android:text="@string/bill"
-        app:layout_constraintBottom_toTopOf="@+id/tip_percent_textview"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintBottom_toTopOf="@+id/tip_percent_label"
+        app:layout_constraintEnd_toEndOf="@+id/per_person_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <TextView
-        android:id="@+id/tip_percent_textview"
+        android:id="@+id/tip_percent_label"
         style="@style/header_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,14 +34,14 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="@string/tip_percent"
-        app:layout_constraintBottom_toTopOf="@+id/num_people_textview"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintBottom_toTopOf="@+id/num_people_label"
+        app:layout_constraintEnd_toEndOf="@+id/per_person_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bill_textview"
         tools:text="@string/tip_percent" />
 
     <TextView
-        android:id="@+id/num_people_textview"
+        android:id="@+id/num_people_label"
         style="@style/header_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,14 +49,24 @@
         android:layout_marginLeft="16dp"
         android:text="@string/number_of_people"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="@+id/per_person_label"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tip_percent_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/tip_percent_label" />
+
+    <View
+        android:id="@+id/divider"
+        style="@style/Divider"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/divider_height"
+        app:layout_constraintBottom_toBottomOf="@id/header_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/header_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25" />
 
@@ -84,21 +86,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/total_cost_value"
+        android:layout_width="0dp"
         style="@style/header_value_style"
-        android:layout_width="wrap_content"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="TextView"
+        android:text="@string/default_dollar_value"
         app:layout_constraintBaseline_toBaselineOf="@+id/total_cost"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/middle_verticalGuideline" />
+        app:layout_constraintStart_toStartOf="@+id/middle_verticalGuideline"
+        tools:text="$400.34" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/per_person_label"
         style="@style/header_style"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -109,24 +113,26 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/per_person_info_text"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintBottom_toTopOf="@+id/header_guideline"
         app:layout_constraintEnd_toStartOf="@+id/middle_verticalGuideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/total_cost" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/per_person_value"
+        android:layout_width="0dp"
         style="@style/header_value_style"
-        android:layout_width="wrap_content"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
+        android:text="@string/default_dollar_value"
+        app:layout_constraintBaseline_toBaselineOf="@+id/per_person_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/middle_verticalGuideline" />
+        app:layout_constraintStart_toStartOf="@+id/middle_verticalGuideline"
+        tools:text="$400.43" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/middle_verticalGuideline"
@@ -134,6 +140,51 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <EditText
+        android:id="@+id/bill_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="@string/default_dollar_value"
+        app:layout_constraintBaseline_toBaselineOf="@+id/bill_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/middle_verticalGuideline" />
+
+    <EditText
+        android:text="@string/default_tip_percent"
+        android:id="@+id/editTextNumberDecimal2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tip_percent_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/middle_verticalGuideline" />
+
+    <EditText
+        android:text="@string/default_num_people"
+        android:id="@+id/editTextNumberDecimal4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBaseline_toBaselineOf="@+id/num_people_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/middle_verticalGuideline" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
